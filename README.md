@@ -1,66 +1,24 @@
-## Foundry
+# EverBlock Latency Probe
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+Minimal onchain latency probe deployed on MegaETH testnet v2 to measure end to end transaction confirmation time.
 
-Foundry consists of:
-
-- **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
-- **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
-- **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
-- **Chisel**: Fast, utilitarian, and verbose solidity REPL.
-
-## Documentation
-
-https://book.getfoundry.sh/
+## Deployment
+Network: MegaETH Testnet v2  
+Chain ID: 6343  
+Contract: 0x33b4a0965fe6006a585B28EbE28Fa1ef287e0540  
 
 ## Usage
+Call `ping()` to emit a `Ping(sender, timestamp, blockNumber)` event.
 
-### Build
+## Benchmark (Jan 2026)
+10 sequential ping transactions via public RPC.
 
-```shell
-$ forge build
-```
+p50: ~1.9s  
+p95: ~3.4s  
+max: 3.7s  
 
-### Test
+## Purpose
+Built by EverBlockTech to benchmark execution and RPC performance during MegaETH testnet.
 
-```shell
-$ forge test
-```
-
-### Format
-
-```shell
-$ forge fmt
-```
-
-### Gas Snapshots
-
-```shell
-$ forge snapshot
-```
-
-### Anvil
-
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+## License
+MIT
